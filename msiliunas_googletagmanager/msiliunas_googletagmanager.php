@@ -11,7 +11,7 @@ class MSiliunas_GoogleTagManager extends Module
     public function __construct()
     {
         $this->name = 'msiliunas_googletagmanager';
-        $this->version = '0.0.1';
+        $this->version = '0.0.2';
         $this->tab = 'analytics';
         $this->author = 'Marijus Siliunas';
         $this->need_instance = 0;
@@ -20,7 +20,7 @@ class MSiliunas_GoogleTagManager extends Module
 
         $this->displayName = $this->l('Google Tag Manager');
         $this->description = $this->l('Integrates Google tag manager.');
-        $this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
+        $this->ps_versions_compliancy = array('min' => '1.6.1.0', 'max' => _PS_VERSION_);
 
         if (!Configuration::get(self::ID_KEY)) {
             $this->warning = $this->l('No id provided.');
@@ -35,7 +35,7 @@ class MSiliunas_GoogleTagManager extends Module
 
         return (parent::install() &&
             $this->registerHook('displayHeader') &&
-            $this->registerHook('displayBeforeBodyClosingTag') &&
+            $this->registerHook('displayFooter') &&
             Configuration::updateValue(self::ID_KEY, ''));
     }
 
@@ -52,7 +52,7 @@ class MSiliunas_GoogleTagManager extends Module
         return $this->display(__FILE__, 'header.tpl');
     }
 
-    public function hookDisplayBeforeBodyClosingTag($params)
+    public function hookDispayFooter($params)
     {
         $this->context->smarty->assign([
             'gtm_id' => Configuration::get(self::ID_KEY),
