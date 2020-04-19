@@ -4,7 +4,7 @@ An easy to install module for your Prestashop for easy GTM integration
 
 ## Compatibility
 
-Tested on Prestashop 1.7. If you successfully installed it on other versions - please let me know or create a PR / Issue.
+Tested on Prestashop 1.6.1.23. If you successfully installed it on other versions - please let me know or create a PR / Issue.
 
 ## Installation
 
