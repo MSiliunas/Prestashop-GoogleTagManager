@@ -11,7 +11,7 @@ class MSiliunas_GoogleTagManager extends Module
     public function __construct()
     {
         $this->name = 'msiliunas_googletagmanager';
-        $this->version = '0.0.1';
+        $this->version = '1.0.0';
         $this->tab = 'analytics';
         $this->author = 'Marijus Siliunas';
         $this->need_instance = 0;
@@ -35,7 +35,7 @@ class MSiliunas_GoogleTagManager extends Module
 
         return (parent::install() &&
             $this->registerHook('displayHeader') &&
-            $this->registerHook('displayBeforeBodyClosingTag') &&
+            $this->registerHook('displayAfterBodyOpeningTag') &&
             Configuration::updateValue(self::ID_KEY, ''));
     }
 
@@ -52,7 +52,7 @@ class MSiliunas_GoogleTagManager extends Module
         return $this->display(__FILE__, 'header.tpl');
     }
 
-    public function hookDisplayBeforeBodyClosingTag($params)
+    public function hookDisplayAfterBodyOpeningTag($params)
     {
         $this->context->smarty->assign([
             'gtm_id' => Configuration::get(self::ID_KEY),

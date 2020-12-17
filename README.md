@@ -1,10 +1,18 @@
 # Google Tag Manager module for Prestashop
 
-An easy to install module for your Prestashop for easy GTM integration
+An easy to install module for your Prestashop for easy GTM integration.
+Inserts required HTML as per Google Tag Manager's instructions.
 
 ## Compatibility
 
-Tested on Prestashop 1.7. If you successfully installed it on other versions - please let me know or create a PR / Issue.
+The module uses two hooks: `displayHeader` and `displayAfterBodyOpeningTag`.
+
+Tested on Prestashop versions:
+
+- 1.7.6
+- 1.7.7
+
+If you successfully installed it on other versions - please let me know or create a PR / Issue.
 
 ## Installation
 
